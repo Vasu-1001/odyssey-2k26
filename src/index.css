@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  /* Offset for fixed navbar */
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: #0f172a;
+  color: #d4c5a3;
+  font-family: 'Cinzel', serif;
+  overflow-x: hidden;
+  background-image: linear-gradient(rgba(15, 17, 26, 0.4), rgba(15, 17, 26, 0.6)), url('/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile scroll override removed for fixed background */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Pirata One', cursive;
+  letter-spacing: 1px;
+}
+
+/* Custom Scrollbar - The Plank Style */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+  background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+}
+
+::-webkit-scrollbar-thumb {
+  background: #854d0e;
+  border: 1px solid #451a03;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a16207;
+}
+
+.wood-border {
+  border: 4px solid #451a03;
+  box-shadow: inset 0 0 20px #000;
+  background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+}
+
+.parchment-panel {
+  background: #d4c5a3;
+  background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+  color: #451a03;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), inset 0 0 50px rgba(69, 26, 3, 0.3);
+  border: none;
+  position: relative;
+}
+
+.parchment-panel::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px dashed #854d0e;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.burnt-edge {
+  box-shadow: inset 0 0 30px 10px rgba(69, 26, 3, 0.6);
+}
+
+.glass-panel {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(251, 191, 36, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.text-gold-glow {
+  text-shadow: 0 0 5px #fbbf24, 0 0 10px #d97706;
+}
+
+.text-blood-shadow {
+  text-shadow: 2px 2px 4px #000;
+}
+
+
+
+@keyframes drift {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.animate-drift-slow {
+  animation: drift 60s linear infinite;
+}
+
+.animate-drift-reverse {
+  animation: drift 80s linear infinite reverse;
+}
+
+/* Distressed/Weathered Text Effect */
+.text-weathered {
+  color: transparent;
+  background: linear-gradient(180deg, #d4c5a3 40%, #a89f91 60%, #451a03 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.8));
+}
+
+/* Glowing Pulse Animation */
+/* Glowing Pulse Animation - Adjusted for subtler "normal" glow */
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px rgba(251, 191, 36, 0.3));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.7));
+  }
+}
+
+.animate-glow {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Performance Utilities */
+.will-change-transform {
+  will-change: transform;
+}
+
